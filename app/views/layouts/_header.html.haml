@@ -7,7 +7,7 @@
       - if can? :manage, User
         %li.hide-responsive= link_to 'Admins', users_path
       - if can? :manage, Resque
-        %li.hide-responsive= link_to 'Queues', '/resque', :target => :_blank
+        %li.hide-responsive= link_to 'Queues', '/sidekiq', :target => :_blank
       - if user_signed_in?
         %li.logout
           = link_to destroy_user_session_path, :method => :delete do

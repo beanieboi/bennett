@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Bennett::Application.routes.draw do
 
   devise_for :users
@@ -19,8 +21,6 @@ Bennett::Application.routes.draw do
     put :update, on: :collection
   end
 
-
-  mount Resque::Server, :at => '/resque'
-
+  mount Sidekiq::Web => 'sidekiq'
   root :to => 'projects#index'
 end

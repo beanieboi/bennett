@@ -16,7 +16,7 @@ class Project < ActiveRecord::Base
   def self.build_all_nightly!
     Project.where(build_nightly: true).each do |project|
       build = project.builds.create
-      Resque.enqueue(CommitsFetcher, build.id)
+      CommitsFetcher.perform_async(build.id)
     end
   end
 

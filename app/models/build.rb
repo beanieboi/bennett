@@ -120,11 +120,4 @@ class Build < ActiveRecord::Base
     res = git.fetch
     res.include?(project.branch)
   end
-
-  def delete_jobs_in_queues
-    Resque.dequeue(CommitsFetcher, id)
-    queue_name = 'Builder for '+ project.name
-    Resque::Job.destroy(queue_name, Builder, id)
-  end
-
 end

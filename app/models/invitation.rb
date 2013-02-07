@@ -22,6 +22,6 @@ class Invitation < ActiveRecord::Base
 private
 
   def queue_email
-    Resque.enqueue(InvitationMailerQueue, id)
+    InvitationMailerQueue.perform_async(InvitationMailerQueue, id)
   end
 end

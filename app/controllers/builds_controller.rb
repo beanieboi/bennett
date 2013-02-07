@@ -17,7 +17,7 @@ class BuildsController < ApplicationController
     respond_to do |format|
       if @manual || @build.new_activity?
         if @build.save
-          Resque.enqueue(CommitsFetcher, @build.id)
+          CommitsFetcher.perform_async(@build.id)
           format.html { redirect_to @project, notice: 'Build successfully added to queue.' }
           format.json { render json: @build, status: :created }
         else
@@ -32,7 +32,6 @@ class BuildsController < ApplicationController
 
   def destroy
     @build = Build.find(params[:id])
-    @build.delete_jobs_in_queues
     if @build.destroy
       flash[:notice] = "Build successfully deleted."
       redirect_to project_path(@build.project)

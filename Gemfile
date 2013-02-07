@@ -2,7 +2,9 @@ source :rubygems
 
 gem 'rails',         '3.2.6'
 gem 'sqlite3'
-gem 'resque',        '1.20.0', require: 'resque/server'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 gem 'git'
 gem 'will_paginate'
 gem 'jquery-rails'

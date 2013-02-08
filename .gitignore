@@ -13,3 +13,5 @@ Vagrantfile
 public/assets
 .sass-cache
 dump.rdb
+config/database.yml
+config/initializers/secret_token.rb

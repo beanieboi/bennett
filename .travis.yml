@@ -1,8 +1,6 @@
 language: ruby
 rvm:
   - 1.9.3
-  - jruby-19mode # JRuby in 1.9 mode
-  - rbx-19mode
 before_script:
   - psql -c 'create database bennett_test;' -U postgres
   - "rake generate_secret_token"

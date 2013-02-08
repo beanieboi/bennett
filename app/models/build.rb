@@ -2,7 +2,7 @@ class Build < ActiveRecord::Base
   belongs_to :project
   has_many :results, :autosave => true, :dependent => :destroy
 
-  scope :recent_first, order('created_at DESC')
+  scope :recent_first,  -> { order('created_at DESC') }
 
   before_create :create_default_results
 

@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
 
   before_create :apply_invites
 
-  scope :admins, where(:admin => true)
-  scope :not_admins, where(:admin => false)
+  scope :admins,      -> { where(:admin => true) }
+  scope :not_admins,  -> { where(:admin => false) }
 
   def projects
     admin? ? Project.all : super

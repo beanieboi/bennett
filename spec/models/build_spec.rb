@@ -39,7 +39,7 @@ describe Build do
   end
 
   it "can build" do
-    project = stub_model Project, folder_path: '/tmp'
+    project = FactoryGirl.build(:project, folder_path: '/tmp')
     result = stub_model Result
     build = Build.new project: project, results: [result]
     build.should_receive(:update_commit!)

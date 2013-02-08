@@ -37,13 +37,7 @@ describe Result do
   end
 
   it "defaults to pending with logpath from project name and build name" do
-    build = stub_model Build
-    command = stub_model Command
-    project = stub_model Project
-    build.should_receive(:project).and_return(project)
-    project.should_receive(:name).and_return("My Awesome Project")
-    command.should_receive(:name).and_return("My Test Command")
-    result = Result.new :build => build, :command => command
+    result = FactoryGirl.build(:result)
     result.save.should be_true
     result.pending?.should be_true
     result.log_path.present?.should be_true

@@ -11,7 +11,7 @@ class Result < ActiveRecord::Base
   belongs_to :command
 
   validates :status_id, :inclusion => { :in => STATUS.values, :on => :update }
-  validates_presence_of :build, :command
+  validates :build, :command, presence: true
 
   before_destroy :delete_log_file
 
@@ -22,8 +22,8 @@ class Result < ActiveRecord::Base
     self.log_path = "#{Rails.root}/log/build_#{build.project.name.parameterize('_')}_#{build.id}_#{command.name.parameterize('_')}.log"
   end
 
-  scope :recent_first, order('end_time DESC')
-  scope :older_first, order('start_time ASC')
+  scope :recent_first,        -> { order('end_time DESC') }
+  scope :older_first,         -> { order('start_time ASC') }
   scope :ordered_by_position, -> { joins(:command).order("commands.position ASC") }
 
   def delete_log_file

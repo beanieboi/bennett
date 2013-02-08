@@ -6,7 +6,7 @@
     %ul.nav.nav-pills
       - if can? :manage, User
         %li.hide-responsive= link_to 'Admins', users_path
-      - if can? :manage, Resque
+      - if can? :manage, Sidekiq
         %li.hide-responsive= link_to 'Queues', '/sidekiq', :target => :_blank
       - if user_signed_in?
         %li.logout

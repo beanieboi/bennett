@@ -1,7 +1,7 @@
 source :rubygems
 
-gem 'rails',         '3.2.6'
-gem 'sqlite3'
+gem 'rails',         '3.2.11'
+gem 'pg'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
@@ -19,8 +19,6 @@ gem 'whenever', require: false
 group :development, :test do
   gem 'rspec-rails'
   gem 'capistrano'
-  gem 'ZenTest'
-  gem 'autotest-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'database_cleaner'

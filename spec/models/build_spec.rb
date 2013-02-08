@@ -38,17 +38,6 @@ describe Build do
     result.skipped?.should be_true
   end
 
-  it "can update git" do
-    project = stub_model Project, folder_path: '/tmp', branch: 'master'
-    git = stub
-    git.stub(:reset_hard)
-    git.stub(:checkout)
-    git.should_receive(:pull)
-    Git.should_receive(:open).and_return(git)
-    build = Build.new project: project
-    build.update_commit!
-  end
-
   it "can build" do
     project = stub_model Project, folder_path: '/tmp'
     result = stub_model Result

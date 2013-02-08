@@ -59,7 +59,6 @@ GEM
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     connection_pool (1.0.0)
-    database_cleaner (0.9.1)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -203,7 +202,6 @@ DEPENDENCIES
   capistrano
   coffee-rails
   compass-rails
-  database_cleaner
   devise
   factory_girl_rails
   faker

@@ -200,7 +200,7 @@ DEPENDENCIES
   bootstrap-sass
   cancan
   capistrano
-  coffee-rails
+  coffee-rails (~> 3.2.1)
   compass-rails
   devise
   factory_girl_rails
@@ -213,11 +213,11 @@ DEPENDENCIES
   pg
   rails (= 3.2.11)
   rspec-rails
-  sass-rails
+  sass-rails (~> 3.2.3)
   sidekiq
   sinatra
   slim
-  uglifier
+  uglifier (>= 1.0.3)
   unicorn
   whenever
   will_paginate

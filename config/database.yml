@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: bennett_test
+  username: postgres
